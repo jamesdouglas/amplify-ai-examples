@@ -4,6 +4,6 @@ import {
 } from "@aws-amplify/ui-react/server";
 
 export const theme = createTheme({
-  name: "my-theme",
+  name: "motorsafety",
   overrides: [defaultDarkModeOverride],
 });
