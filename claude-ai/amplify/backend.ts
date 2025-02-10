@@ -25,14 +25,15 @@ cfnUserPool.policies = {
 
 cfnUserPool.addPropertyOverride(
 	'Policies.SignInPolicy.AllowedFirstAuthFactors',
-	['PASSWORD', 'WEB_AUTHN', 'EMAIL_OTP', 'SMS_OTP']
+	['PASSWORD', 'WEB_AUTHN', 'EMAIL_OTP']
 );
 
 cfnUserPoolClient.explicitAuthFlows = [
 	'ALLOW_REFRESH_TOKEN_AUTH',
-	'ALLOW_USER_AUTH'
+	'ALLOW_USER_SRP_AUTH',
+	'ALLOW_USER_PASSWORD_AUTH'
 ];
 
 /* Needed for WebAuthn */
-cfnUserPool.addPropertyOverride('WebAuthnRelyingPartyID', '<RELYING_PARTY>');
+cfnUserPool.addPropertyOverride('WebAuthnRelyingPartyID', 'callrocket.net');
 cfnUserPool.addPropertyOverride('WebAuthnUserVerification', 'preferred');
